@@ -315,22 +315,24 @@ function read(rpath: string, data: any, settings: IOptions, deep: number, resolv
       };
       // Iterate through elements (files and folders)
       for (const file of files) {
-        const path = rpath + (rpath.endsWith(pathSimbol) ? '' : pathSimbol);
-        const obj:IBase = {
-          name: file.toString(),
-          nameb: file,
-          title: removeExt(file.toString()),
-          path: rpath,
-          pathb: Buffer.from(rpath),
-          fullname: path + file.toString(),
-          fullnameb: Buffer.concat([Buffer.from(path), file]),
-        };
-        if (checkItem(obj.fullname, settings)) {
-          addOptionalKeys(obj, file.toString(), settings, deep);
-          data.push(obj);
+        const ext = PATH.extname(file.toString())
+        if(settings.include.includes(ext) || ext.length === 0){
+          const path = rpath + (rpath.endsWith(pathSimbol) ? '' : pathSimbol);
+          const obj:IBase = {
+           name: file.toString(),
+            nameb: file,
+           title: removeExt(file.toString()),
+           path: rpath,
+           pathb: Buffer.from(rpath),
+           fullname: path + file.toString(),
+           fullnameb: Buffer.concat([Buffer.from(path), file]),
+         };
+         if (checkItem(obj.fullname, settings)) {
+            addOptionalKeys(obj, file.toString(), settings, deep);
+           data.push(obj);
+         }
         }
       }
-
       // Finish, returning content
       resolve(data);
     }
