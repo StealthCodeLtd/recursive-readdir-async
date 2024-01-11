@@ -316,7 +316,7 @@ function read(rpath: string, data: any, settings: IOptions, deep: number, resolv
       // Iterate through elements (files and folders)
       for (const file of files) {
         const ext = PATH.extname(file.toString())
-        if(settings.include.includes(ext) || ext.length === 0){
+        if(settings?.include?.includes(ext) || ext.length === 0){
           const path = rpath + (rpath.endsWith(pathSimbol) ? '' : pathSimbol);
           const obj:IBase = {
            name: file.toString(),

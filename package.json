@@ -49,19 +49,19 @@
   "homepage": "https://m0rtadelo.github.io/recursive-readdir-async/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/m0rtadelo/recursive-readdir-async.git"
+    "url": "git+https://github.com/StealthCodeLtd/recursive-readdir-async"
   },
   "license": "MIT",
   "devDependencies": {
-    "fs-extra": "^7.0.1",
-    "jsdoc": "^3.6.4",
     "@types/jest": "^27.0.3",
-    "@types/node": "^16.11.7",
+    "@types/node": "^16.18.70",
     "@typescript-eslint/eslint-plugin": "^5.4.0",
     "@typescript-eslint/parser": "^5.4.0",
     "eslint": "^8.2.0",
     "eslint-config-google": "^0.14.0",
+    "fs-extra": "^7.0.1",
     "jest": "^27.3.1",
+    "jsdoc": "^3.6.4",
     "ts-jest": "^27.0.7",
     "typedoc": "^0.22.9",
     "typescript": "^4.4.4"
