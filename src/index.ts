@@ -313,10 +313,13 @@ function read(rpath: string, data: any, settings: IOptions, deep: number, resolv
         const extSize = PATH.extname(file).length;
         return file.substring(0, file.length - (extSize > 0 ? extSize : 0));
       };
+      let checkExt = false;
+      if (settings?.include !== undefined && settings.include.length !== 0)
+      checkExt = true;
       // Iterate through elements (files and folders)
       for (const file of files) {
         const ext = PATH.extname(file.toString())
-        if(settings?.include?.includes(ext) || ext.length === 0){
+        if(settings?.include?.includes(ext) || ext.length === 0 || checkExt === false){
           const path = rpath + (rpath.endsWith(pathSimbol) ? '' : pathSimbol);
           const obj:IBase = {
            name: file.toString(),
